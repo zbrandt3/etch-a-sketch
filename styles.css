@@ -8,6 +8,15 @@ div {
     gap: 4px;
 }
 
+.input {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: block;
+}
+
 .row {
     align-content: center;
     gap: 0px
@@ -18,7 +27,4 @@ div {
     height: 50px;
     width: 50px;
     margin: -4px;
-}
-.column:hover {
-    background-color: pink;
 }
