@@ -3,8 +3,10 @@ const clearBtn = document.querySelector("#clear-btn");
 const gridInput = document.querySelector("#grid-input");
 const submitBtn = document.querySelector("#submit-btn");
 const gridContainer = document.querySelector(".grid");
-const gridInitVal = 8;
-const gridwidth = gridContainer.clientHeight;
+const GRIDMAX = 100;
+const GRIDMIN = 20;
+const gridInitVal = GRIDMIN;
+var gridwidth = gridContainer.clientHeight;
 
 gridInput.value = gridInitVal;
 addDrawEvent();
@@ -15,7 +17,7 @@ clearBtn.addEventListener("click", clear);
 function addDrawEvent() {
     Array.from(divs).forEach((div) => {
         div.addEventListener("mouseover", () => {
-            div.style.backgroundColor = "blue";
+            div.style.backgroundColor = "red";
         })
     })
 }
@@ -24,12 +26,12 @@ function drawGrid() {
     gridSize = gridInput.value;
     gridInput.value = "";
     
-    if(gridSize > 20) {
+    if(gridSize > GRIDMAX) {
         alert("Too beeg");
         return;
     }
     
-    if(gridSize < 2) {
+    if(gridSize < GRIDMIN) {
         alert("Too smol");
         return;
     }
@@ -38,20 +40,23 @@ function drawGrid() {
         gridContainer.removeChild(gridContainer.lastChild)
     }
 
+    gridwidth = gridContainer.clientHeight;
+
     for(var i = 0; i < gridSize; i++) {
         var newRow = document.createElement("div");
         newRow.classList.add("row");
-        newRow.style.height = gridwidth/gridSize;
+        console.log(gridwidth/gridSize);
         newRow.style.width = gridwidth;
         gridContainer.appendChild(newRow);
+        newRow.style.height = gridwidth/gridSize;
         console.log(newRow.style.height)
         
 
         for(var j = 0; j < gridSize; j++) {
             var newCol = document.createElement("div")
             newCol.classList.add("column");
-            newCol.style.height = gridwidth/gridSize;
-            newCol.style.width = gridwidth/gridSize;
+            newCol.style.height = gridwidth/gridSize + 'px';
+            newCol.style.width = gridwidth/gridSize + 'px';
             newRow.appendChild(newCol)
         }
     }
@@ -60,12 +65,8 @@ function drawGrid() {
     addDrawEvent();
 }
 
-function etch(element) {
-    element.style.backgroundColor = "blue";
-}
-
 function clear() {
     Array.from(divs).forEach((div) => {
-        div.style.backgroundColor = "black";
+        div.style.backgroundColor = "white";
     })
 }
