@@ -3,21 +3,26 @@ const clearBtn = document.querySelector("#clear-btn");
 const gridInput = document.querySelector("#grid-input");
 const submitBtn = document.querySelector("#submit-btn");
 const gridContainer = document.querySelector(".grid");
+const drawColorBtns = document.querySelectorAll(".draw-color");
+
 const GRIDMAX = 100;
-const GRIDMIN = 20;
+const GRIDMIN = 10;
 const gridInitVal = GRIDMIN;
 var gridwidth = gridContainer.clientHeight;
+var drawColor = "green"
 
 gridInput.value = gridInitVal;
 addDrawEvent();
 drawGrid()
+Array.from(drawColorBtns).forEach((e) => {e.addEventListener("click", changeColor)})
+
 submitBtn.addEventListener("click", drawGrid);
 clearBtn.addEventListener("click", clear);
 
 function addDrawEvent() {
     Array.from(divs).forEach((div) => {
         div.addEventListener("mouseover", () => {
-            div.style.backgroundColor = "red";
+            div.style.backgroundColor = drawColor;
         })
     })
 }
@@ -45,18 +50,20 @@ function drawGrid() {
     for(var i = 0; i < gridSize; i++) {
         var newRow = document.createElement("div");
         newRow.classList.add("row");
-        console.log(gridwidth/gridSize);
+        
         newRow.style.width = gridwidth;
-        gridContainer.appendChild(newRow);
         newRow.style.height = gridwidth/gridSize;
-        console.log(newRow.style.height)
+
+        gridContainer.appendChild(newRow);
         
 
         for(var j = 0; j < gridSize; j++) {
             var newCol = document.createElement("div")
             newCol.classList.add("column");
+
             newCol.style.height = gridwidth/gridSize + 'px';
             newCol.style.width = gridwidth/gridSize + 'px';
+
             newRow.appendChild(newCol)
         }
     }
@@ -69,4 +76,10 @@ function clear() {
     Array.from(divs).forEach((div) => {
         div.style.backgroundColor = "white";
     })
+}
+
+function changeColor() {
+        if(this.id == 'red') { drawColor = 'red'; }
+        if(this.id == 'green') { drawColor = 'green'; }
+        if(this.id == 'blue') { drawColor = 'blue';  }
 }

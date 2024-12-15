@@ -8,13 +8,18 @@
 </head>
 <body>
    <h1>Etch-a-sketch</h1> 
-   <p>Enter a number (20-100)</p>
+   <p>Enter a number (10-100)</p>
    <div class="input">
-    <input type="text" id="grid-input">
+    <input type="number" id="grid-input">
     <button type="submit" id="submit-btn">Generate</button>
    </div>
    <div class="clear">
     <button id="clear-btn">Clear Grid</button>
+   </div>
+   <div class="colors">
+    <button class="draw-color" id="red">Red</button>
+    <button class="draw-color" id="blue">Blue</button>
+    <button class="draw-color" id="green">Green</button>
    </div>
    <div>
    <div class="grid">

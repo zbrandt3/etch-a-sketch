@@ -9,7 +9,7 @@ div {
 }
 
 .input {
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 10px;
 }
 
@@ -19,7 +19,7 @@ div {
     width: 700px;
     justify-content: space-evenly;
     align-items: center;
-    border: 1px, solid, black;
+    border: 6px, solid, black;
 }
 
 .row {
@@ -33,6 +33,7 @@ div {
     background-color: white;
 }
 
-.clear {
-    margin-bottom: 20px;
+.draw-color {
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
