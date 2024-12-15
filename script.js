@@ -1,4 +1,5 @@
-var divs = document.querySelectorAll(".column")
+// stop using var idiot
+let divs = document.querySelectorAll(".column")
 const clearBtn = document.querySelector("#clear-btn");
 const gridInput = document.querySelector("#grid-input");
 const submitBtn = document.querySelector("#submit-btn");
@@ -8,8 +9,8 @@ const drawColorBtns = document.querySelectorAll(".draw-color");
 const GRIDMAX = 100;
 const GRIDMIN = 10;
 const gridInitVal = GRIDMIN;
-var gridwidth = gridContainer.clientHeight;
-var drawColor = "green"
+let gridwidth = gridContainer.clientHeight;
+let drawColor = "green"
 
 gridInput.value = gridInitVal;
 addDrawEvent();
@@ -47,8 +48,8 @@ function drawGrid() {
 
     gridwidth = gridContainer.clientHeight;
 
-    for(var i = 0; i < gridSize; i++) {
-        var newRow = document.createElement("div");
+    for(let i = 0; i < gridSize; i++) {
+        let newRow = document.createElement("div");
         newRow.classList.add("row");
         
         newRow.style.width = gridwidth;
@@ -57,8 +58,8 @@ function drawGrid() {
         gridContainer.appendChild(newRow);
         
 
-        for(var j = 0; j < gridSize; j++) {
-            var newCol = document.createElement("div")
+        for(let j = 0; j < gridSize; j++) {
+            let newCol = document.createElement("div")
             newCol.classList.add("column");
 
             newCol.style.height = gridwidth/gridSize + 'px';
